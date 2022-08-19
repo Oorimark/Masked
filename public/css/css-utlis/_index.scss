@@ -1,0 +1,10 @@
+@mixin underlineText($color){
+    &::before{
+        content: '';
+        position: absolute;
+        background: $color;
+        width: 80px;
+        height: 5px;
+        transform: translateY(38px);
+    }
+}

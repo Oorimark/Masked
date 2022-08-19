@@ -1,0 +1,10 @@
+@import "@display_types";
+
+// built-in classes that implements the mixins
+// NB: To see the styling you hold ctrl and hover the mixin name
+.disp-fl-c{ @include fl-c } 
+.disp-b-c{ @include b-c }
+.disp-fl-c-d{ @include fl-c-d }
+.disp-fl{ @include dis-fl(none, none) }
+.disp-fl-sb{ @include dis-fl(space-around, center) }
+.disp-fl-sa{ @include dis-fl(space-around, center) }

@@ -1,0 +1,23 @@
+html{
+    overflow: hidden;
+}
+body{
+    outline: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+}
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: .3s;
+    color: $secondary-color-2;
+}
+a{
+    text-decoration: none;
+    color: $secondary-color;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Poppins', sans-serif;
+}

@@ -1,0 +1,17 @@
+.pop-container{
+    @include fl-c;
+    position: absolute;
+    height: 80vh;
+    z-index:  -1;
+    .pop-up{
+        @include fl-c;
+        flex-direction: column;
+        z-index:  -1;
+        padding: 30px 25px;
+        .btn{
+            width: 100%;
+            background: $extra-color;
+            color: $secondary-color-2;
+        }
+    }
+}

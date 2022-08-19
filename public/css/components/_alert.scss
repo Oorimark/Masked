@@ -1,0 +1,11 @@
+.alert-container{
+    @include fl-c;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    .text{
+        background: linear-gradient(92.83deg, #ffffff64 41.66%, rgba(255, 255, 255, 0.281) 98.26%);
+        padding: 20px 25px;
+        max-width: 500px;
+    }
+}

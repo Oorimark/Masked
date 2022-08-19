@@ -1,0 +1,18 @@
+// pallete
+@import "./pallette/index";
+
+// default settings
+@import "./default/index";
+
+// components or UI
+@import "./display/index";
+@import "./boostrap/index";
+@import "./components/index";
+
+// pages 
+@import "./pages/welcome"; 
+@import "./pages/start";
+@import "./pages/link";
+
+// pages
+@import "./position/position";

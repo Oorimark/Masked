@@ -1,0 +1,15 @@
+.slider{
+    .animation{
+        animation: slider-animation linear 3s infinite 
+    }
+
+    @keyframes slider-animation {
+        0%{
+            width: auto;
+        }
+        100%{
+            width: 0px;
+        }
+        
+    }
+}

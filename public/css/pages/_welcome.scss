@@ -1,0 +1,25 @@
+
+
+.Welcome_page{
+    @include fl-c-d;
+
+    .loading{
+        height: 100vh;
+        width: 0%;
+        background-color: $primary-color;
+        transition: .4s;
+        position: absolute;
+        left: 0%;
+        z-index: -1;
+        animation: loadingAnime 8s alternate forwards;
+
+    }
+    @keyframes loadingAnime {
+        0%{
+            width: 0%; 
+        }
+        100%{
+            width: 100%;
+        }
+    }
+}
