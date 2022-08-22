@@ -1,7 +1,7 @@
 import React from 'react'
 import react from 'react'
 import { Link } from 'react-router-dom'
-import { Logo } from '../../components/Logo'
+import { Logo, LogoFC } from '../../components/Logo'
 import { Slider } from '../../components/Slide'
 import HeroImage from '../../../public/img/Delivery girl.png';
 import { navigateBack } from '../../util/utilities'
@@ -11,7 +11,7 @@ export const JonLinkPage = () => {
         <React.Fragment>
             <div className="bg-primary join-link-page">
                 <nav>
-                    <Logo position='left' />
+                    <LogoFC position='left' />
                     <div className="back" onClick={navigateBack}>
                         <i className="bi bi-chevron-left"></i>Back
                     </div>

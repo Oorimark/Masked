@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState, useContext } from 'react'
 import react from 'react'
 import { motion } from 'framer-motion'
 import { Slider } from '../../components/Slide'
-import { Logo } from '../../components/Logo'
+import { Logo, LogoFC } from '../../components/Logo'
 import { Button, GlassButton } from '../../components/Buttons'
 import Image from '../../../public/img/Message sent.png'
 import { generate_random_value } from '../../util/generator'
@@ -22,12 +22,8 @@ export const CreateLinkPage: React.FC= () => {
     const linkRef = useRef<any>(null)
 
     const GlassButtonClickExe = () => {
-        //generate_random_value(19)
         togglepopup.current.alterToggle()
         console.log(startdate.current.value)
-        //console.log(alertcontext)
-        // set alert message
-        //console.log(alertcontext)
         linkRef.current.innerHTML = generate_random_value(10)
     }
 
@@ -37,7 +33,7 @@ export const CreateLinkPage: React.FC= () => {
     }
 
     const Back = () => {
-        navigate(-1)
+        navigate('/start')
     }
     return (
         <React.Fragment>
@@ -49,7 +45,7 @@ export const CreateLinkPage: React.FC= () => {
 
             <div className='bg-primary create-link-page'>
                 <nav>
-                    <Logo position='right'/>
+                    <LogoFC position='right' />
                     <div className="back" onClick={Back}>
                         <i className="bi bi-chevron-left"></i> Back
                     </div>
