@@ -24,6 +24,10 @@ a {
   color: #d9d9d9;
 }
 
+a:hover {
+  color: #d9d9d9;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
 }
@@ -281,6 +285,20 @@ h1, h2, h3, h4, h5, h6 {
   100% {
     width: 100%;
   }
+}
+
+.background-pattern {
+  background: url(../../img/icons/icons8-anonymous-mask-150.png);
+  position: absolute;
+  top: 0;
+  left: -10px;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+}
+
+.start-container {
+  z-index: 2;
 }
 
 .start-container .row .header h3 {

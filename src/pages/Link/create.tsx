@@ -6,16 +6,14 @@ import { Logo, LogoFC } from '../../components/Logo'
 import { Button, GlassButton } from '../../components/Buttons'
 import Image from '../../../public/img/Message sent.png'
 import { generate_random_value } from '../../util/generator'
-import { BackDrop } from '../../components/Backdrop'
 import { PopUp } from '../../components/Pop-Up'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { AlertContext } from '../../components/Alert/Context'
-import { navigateBack } from '../../util/utilities'
-
 
 export const CreateLinkPage: React.FC= () => {
     const navigate = useNavigate()
-    const {setalertcontext} = useContext(AlertContext)
+    //const {setalertcontext} = useContext(AlertContext)
+    const [disableButton, setDisableButon] = useState<boolean>(true)
     const togglepopup = useRef<any>(null)
     const startdate = useRef<any>(null)
     const enddate = useRef<any>(null)
@@ -30,6 +28,7 @@ export const CreateLinkPage: React.FC= () => {
     const FormExecution = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         GlassButtonClickExe()
+        setDisableButon(false)
     }
 
     const Back = () => {
@@ -70,7 +69,7 @@ export const CreateLinkPage: React.FC= () => {
                                     ref={enddate}/>
                             </div>
                             <input className='glass-btn' type="submit" value="generate token" />
-                            <Button content='Go To Room'/>
+                            <Button content='Go To Room' disable={disableButton}/>
                         </form>
                     </section>
                     <div className="img">
@@ -85,8 +84,5 @@ export const CreateLinkPage: React.FC= () => {
             </div>
         </React.Fragment>
     )
-}
-function useNavigation() {
-    throw new Error('Function not implemented.')
 }
 

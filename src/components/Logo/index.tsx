@@ -39,7 +39,7 @@ export class Logo extends React.Component<IProps>{
 }
 
 export const LogoFC: React.FC<IProps>= (props: IProps) => {
-let GLogoStyling: React.CSSProperties = {
+let LogoStyling: React.CSSProperties = {
     position: 'absolute',
     top: 0,
     width: '100px',
@@ -47,9 +47,8 @@ let GLogoStyling: React.CSSProperties = {
     cursor: 'pointer'
 }
     const navigate = useNavigate()
-    var LogoStyling = Object.assign(GLogoStyling)
     if (props.position == "left"){
-        GLogoStyling.left = 0
+        LogoStyling.left = 0
     }
     else { LogoStyling.right = 0 }
     const BackToHome = () => {  navigate("/start") }
