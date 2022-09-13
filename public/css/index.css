@@ -232,12 +232,15 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
   position: absolute;
   top: 0;
   z-index: 99;
 }
 
-.alert-container .text {
+.alert-container .content {
+  display: block;
   background: linear-gradient(92.83deg, #ffffff64 41.66%, rgba(255, 255, 255, 0.281) 98.26%);
   padding: 20px 25px;
   max-width: 500px;

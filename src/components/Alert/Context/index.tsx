@@ -3,16 +3,29 @@ import { CreateLinkPage } from '../../../pages/Link/create';
 import Pages from '../../../pages/pages'
 
 type IState = {
-    status: null | string;
-    message: string;
+    alertMsg: Array<alertData> | null,
+    setAlertMsg:  React.Dispatch<React.SetStateAction<alertData[] | null>>
 }
-export const AlertContext = createContext<any>("")
-export const alertContext = () => {
-  const [alertcontext, setalertcontext] = 
-        useState<string>("");
+type alertData = {
+  msg: string,
+  status: string
+}
+type IProps = {
+  children: React.ReactNode
+}
+export const AlertContext = createContext({} as IState)
+export const AlertContextProvider = ({ children }: IProps) => {
+  const AlertMsgSample = [
+    {
+      msg: "", 
+      status: "" 
+    },
+  ]
+  const [alertMsg, setAlertMsg] = 
+  useState<Array<alertData> | null>(AlertMsgSample);
   return (
-    <AlertContext.Provider value={{alertcontext, setalertcontext}}>
-        <CreateLinkPage />
+    <AlertContext.Provider value={{alertMsg, setAlertMsg}}>
+        { children }
     </AlertContext.Provider>
   )
 }

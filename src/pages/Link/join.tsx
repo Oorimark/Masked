@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Logo, LogoFC } from '../../components/Logo'
 import { Slider } from '../../components/Slide'
 import HeroImage from '../../../public/img/Delivery girl.png';
-import { navigateBack } from '../../util/utilities'
+import { navigateBack } from '../../util/utilities/navigate'
 
 export const JonLinkPage = () => {
     return (

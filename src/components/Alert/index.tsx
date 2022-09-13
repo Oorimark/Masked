@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import { setFadeOut } from '../../util/utilities/fade';
 
 interface IProps{
     status: string;
-    children?: any
+    content: string,
+    children?: React.ReactNode | string
 }
+/**
+ * Alert-Component - Handles alert messages
+ * @param props { Status, Content, Children }
+ * @description 
+ * @returns ReactNode
+ */
 const Alert: React.FC<IProps> = (props: IProps) => {
+  const alertRef = useRef<any>(null)
   const AlertStyling: React.CSSProperties = {}
 
+  setFadeOut(() => { return alertRef }, 9000) // alert fades out after 4s
   switch(props.status){
     case 'success':
       AlertStyling.borderLeft = '4px solid rgb(9, 214, 9)';
@@ -19,11 +29,10 @@ const Alert: React.FC<IProps> = (props: IProps) => {
   }
   return (
     <React.Fragment>
-        <div className="alert-container">
-            <div className="text" style={AlertStyling}>
+            <div className="content" style={AlertStyling} ref={alertRef}>
+                {props.content}
                 {props.children}
             </div>
-        </div>
     </React.Fragment>
   )
 }
