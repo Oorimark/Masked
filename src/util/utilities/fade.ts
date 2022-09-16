@@ -12,4 +12,5 @@
 export function setFadeOut(callback: Function, timer: number): void{
     const ref = callback()
     setTimeout(() => { ref.current.style.display = "none" }, timer)
+    setTimeout(() => { ref.current.style.display = "block" }, timer + 1000)
 }

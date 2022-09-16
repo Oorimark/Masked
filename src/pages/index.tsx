@@ -7,18 +7,12 @@ import { AnimatePresence } from "framer-motion";
 import { CreateLinkPage } from "./Link/create";
 import Alert from "../components/Alert";
 import { JonLinkPage } from "./Link/join";
-import { setFadeOut } from "../util/utilities/fade";
 import { AlertContext } from "../components/Alert/Context";
 
 export const RoutedPages: React.FC = () => {
   const alertContext = useContext(AlertContext);
   let keyValue: number = 0;
-  useEffect(() => {
-    console.log("first");
-    console.log(alertContext.alertMsg);
-  });
   const location = useLocation();
-  const testRef = useRef(null);
   return (
     <AnimatePresence>
       {alertContext.alertMsg
@@ -29,16 +23,10 @@ export const RoutedPages: React.FC = () => {
             ): "")
           }
           </div> 
-          // alertContext.alertMsg.map((alert) => (
-          //   <Alert status={alert.status} content={alert.msg} key={keyValue++}/>
-          // ))
         : ""}
-      {
-
-      }
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Welcome />} />
-        <Route path="*" element={<ErrorPage />} />
+        <Route path="/*" element={<ErrorPage />} />
         <Route path="/start" element={<StartPage />} />
         <Route path="/create" element={<CreateLinkPage />} />
         <Route path="/join" element={<JonLinkPage />} />

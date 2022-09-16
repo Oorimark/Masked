@@ -20,7 +20,7 @@ export const CreateLinkPage: React.FC= () => {
     const linkRef = useRef<any>(null)
 
     const GlassButtonClickExe = () => {
-        togglePopup.current.alterToggle()
+        //togglePopup.current.alterToggle()
         linkRef.current.innerHTML = generate_random_value(10)
         // set a alert Message
         if(alertContext.alertMsg){
@@ -59,15 +59,14 @@ export const CreateLinkPage: React.FC= () => {
                             <span className="join"><Link to="/join">Join with link</Link></span>
                         </header>
                         <form action="" onSubmit={FormExecution}>
-                            <input type="text" name="" id="" placeholder='Enter display name' required/>
+                            <input type="text" name="" id="" placeholder='Enter display name' />
                             <div className="disp-fl-sb">
                             <input type="time" name="" id=""
                                     placeholder='Conversation time (eg: 11:30)' 
-                                    required
                                     max={5}
                                     ref={startDate}/>
                             <input type="time" name=""
-                                    placeholder='Conversation time (eg: 11:30)' required
+                                    placeholder='Conversation time (eg: 11:30)'
                                     max={5}
                                     ref={endDate}/>
                             </div>
