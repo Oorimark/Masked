@@ -8,14 +8,24 @@
     height: 100vh;
 }  
 .start-container{
+    //background: red;
     z-index: 2;
-    .row{
+    width: auto;    
+    display: grid;
+    justify-content: center;
+    .row-custom{
+        box-sizing: border-box;
         .header{
+            width: max(60rem, 40rem);
+            height: 10rem;
             h3{
                 font-weight: 340;
                 font-size: calc(28px + 3vw) !important;
                 color: $secondary-color-2;
+                text-align: center;
             }
+        }
+        .btn-container{ 
         }
     }
 }

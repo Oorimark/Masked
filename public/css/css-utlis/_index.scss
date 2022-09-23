@@ -8,3 +8,17 @@
         transform: translateY(38px);
     }
 }
+@mixin customizedScrollBar($color, $width){
+    &::-webkit-scrollbar {
+        width: $width;
+        height: 0rem;
+    }
+    &::-webkit-scrollbar-track {
+        width: 0rem;
+        height: 0rem;
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $color;
+    }
+}

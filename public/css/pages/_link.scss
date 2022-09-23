@@ -48,12 +48,13 @@
             form{
                 display: grid;
                 row-gap: 50px;
-                input[type=text], input[type=time]{
+                :is([type="text"], [type="time"]){
                     @include inputFieldStyle;
+                    padding-left: 2rem;
+                    color: #fff;
                 }
                 input[type=time]{
                     width: 45%;
-                    padding-left: 2rem;
                 }
                 input[type=submit]{
                     border: none;
@@ -67,6 +68,7 @@
                 right: 0;
                 opacity: .9;
                 z-index: 1;
+                scale: .8;
             }
         }
     }

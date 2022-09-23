@@ -13,10 +13,9 @@ interface IProps{
  * @returns ReactNode
  */
 const Alert: React.FC<IProps> = (props: IProps) => {
-  const alertRef = useRef<any>(null)
+  const alertRef = useRef<HTMLDivElement>(null)
   const AlertStyling: React.CSSProperties = {}
 
-  // setFadeOut(() => { return alertRef }, 9000) // alert fades out after 4s
   switch(props.status){
     case 'success':
       AlertStyling.borderLeft = '4px solid rgb(9, 214, 9)';

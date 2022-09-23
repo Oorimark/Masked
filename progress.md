@@ -19,5 +19,6 @@ if any description is missing then an asterisks (\*) can be filled in that field
 - [x] Clean up code
 
 #### DAY2 - (Start)[12th Sept 2022], (End)[]
-* [x] Make the Alert Component Work
-* [] Type Animation on the start page
+
+- [x] Make the Alert Component Work
+- [x] Type Animation on the start page

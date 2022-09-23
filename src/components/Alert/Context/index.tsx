@@ -1,6 +1,4 @@
 import React, { createContext, useState, useEffect } from 'react'
-import { CreateLinkPage } from '../../../pages/Link/create';
-import Pages from '../../../pages/pages'
 
 type IState = {
     alertMsg: Array<alertData>, 
@@ -21,29 +19,13 @@ export const AlertContextProvider = ({ children }: IProps) => {
       status: "" 
     },
   ]
-  const [alertMsg, setAlertMsg] = 
-  useState<Array<alertData>>(AlertMsgSample);
-  // ( // remove last item of the alert
-  //   function(){
-  //     if(alertMsg)
-  //     if (alertMsg.length > 4){ 
-  //           removeExpiredAlertMessage()
-  //     }
-  //     console.log(alertMsg)
-  //   }
-  // )()
+  const [alertMsg, setAlertMsg] = useState<Array<alertData>>(AlertMsgSample);
   function removeExpiredAlertMessage(){
         if (alertMsg.length){
         const filtered = alertMsg.filter(item => item != alertMsg[0])
         setAlertMsg(() => [...filtered])
         }
   }
-  // ( // 
-  //   function(){
-  //        const interval = setInterval(removeExpiredAlertMessage, 9000);
-  //        if (alertMsg.length <= 0) clearInterval(interval)
-  //   }
-  // )()
   useEffect(() => {
       if (alertMsg.length > 4) removeExpiredAlertMessage()
       const interval = setInterval(removeExpiredAlertMessage, 2000);

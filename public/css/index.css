@@ -17,6 +17,13 @@ body {
   -webkit-transition: .3s;
   transition: .3s;
   color: #ffff;
+  border: 0;
+  padding: 0;
+}
+
+*::before, *::after {
+  border: 0;
+  padding: 0;
 }
 
 a {
@@ -30,6 +37,24 @@ a:hover {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+input:focus {
+  outline: 0;
+}
+
+button {
+  background: transparent;
+  border: 0;
 }
 
 .disp-fl-c {
@@ -302,12 +327,29 @@ h1, h2, h3, h4, h5, h6 {
 
 .start-container {
   z-index: 2;
+  width: auto;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.start-container .row .header h3 {
+.start-container .row-custom {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.start-container .row-custom .header {
+  width: 60rem;
+  height: 10rem;
+}
+
+.start-container .row-custom .header h3 {
   font-weight: 340;
   font-size: calc(28px + 3vw) !important;
   color: #ffff;
+  text-align: center;
 }
 
 .create-link-page, .join-link-page {
@@ -397,21 +439,23 @@ h1, h2, h3, h4, h5, h6 {
   row-gap: 50px;
 }
 
-.create-link-page main section form input[type=text], .create-link-page main section form input[type=time], .join-link-page main section form input[type=text], .join-link-page main section form input[type=time] {
+.create-link-page main section form :is([type="text"], [type="time"]), .join-link-page main section form :is([type="text"], [type="time"]) {
   outline: 0px;
-  border: 10px solid linear-gradient(92.29deg, #F6E9E8 19.21%, rgba(240, 240, 240, 0.263468) 30.3%, rgba(255, 123, 114, 0.654466) 61.86%, rgba(255, 179, 173, 0.76) 75.08%, #FF5548 89.16%);
+  border: 10px solid linear-gradient(92.29deg, #F6E9E8 99.21%, rgba(240, 240, 240, 0.263468) 30.3%, rgba(255, 123, 114, 0.654466) 61.86%, rgba(255, 179, 173, 0.76) 75.08%, #FF5548 89.16%);
   border-radius: 44px;
+  outline: .1rem solid #FFFFFF42;
   width: 100%;
   height: 70px;
   background: transparent;
   color: #FFFFFF42;
   font-weight: 400;
   font-size: 18px;
+  padding-left: 2rem;
+  color: #fff;
 }
 
 .create-link-page main section form input[type=time], .join-link-page main section form input[type=time] {
   width: 45%;
-  padding-left: 2rem;
 }
 
 .create-link-page main section form input[type=submit], .join-link-page main section form input[type=submit] {
@@ -424,6 +468,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   opacity: .9;
   z-index: 1;
+  scale: .8;
 }
 
 @media screen and (max-width: 1200px) {
@@ -451,6 +496,418 @@ h1, h2, h3, h4, h5, h6 {
 .join-link-page main .img img {
   left: 0;
   width: 700px;
+}
+
+/* ===== Table of Content =====
+1. Setting up variables
+    1.1 Background and colors
+    1.2 Font sizes and weights
+2. Default styling to the page
+3. Setting up grid layout in the page
+4. Layout styling
+    4.1 Utility classes
+/* ============================== */
+/* 1. ====================
+    Setting up variables
+    =================== */
+/* 2. ============================
+    Default styling to the page
+    ============================*/
+.chat__page__container > :where(*) {
+  border: 0;
+  padding: 0;
+  border: none;
+}
+
+/* 3. ==================================
+    Setting up grid layout in the page
+    ==================================*/
+.chat__page__container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 22rem (1fr)[2];
+      grid-template-columns: 22rem repeat(2, 1fr);
+  -ms-grid-rows: 5rem 5rem 1fr 7rem;
+      grid-template-rows: 5rem 5rem 1fr 7rem;
+      grid-template-areas: 'header header header' 'groups groups groups' 'chat__area chat__area chat__area' 'chat__input chat__input chat__input';
+}
+
+.chat__page__container > .chat__header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: header;
+}
+
+.chat__page__container > .chat__groups {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: groups;
+}
+
+.chat__page__container > .chat__area {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: chat__area;
+}
+
+.chat__page__container > .chat__input {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: chat__input;
+}
+
+/* 4. ================
+    Layout Styling
+    ================*/
+.chat__page__container {
+  /* 4.1 ===============
+        utility classes
+        ===============*/
+}
+
+.chat__page__container > .chat__header {
+  background-color: #444343;
+}
+
+.chat__page__container > .chat__header > .parent--container {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-inline: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.chat__page__container > .chat__header > .parent--container > .header--container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
+}
+
+.chat__page__container > .chat__header > .parent--container > .header--container > button {
+  font-size: 1.04375rem;
+  background-color: #FF4133;
+  padding: .4em 1.8em;
+  border-radius: .5em;
+}
+
+.chat__page__container > .chat__header > .parent--container > .header--container > .time span {
+  font-size: 0.99375rem;
+  color: #ffffffa0;
+}
+
+.chat__page__container > .chat__groups {
+  background-color: #2e2e2e;
+}
+
+.chat__page__container > .chat__groups > .parent--container {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 3rem 2rem;
+  padding-left: 2rem;
+}
+
+.chat__page__container > .chat__groups > .parent--container > .header--container {
+  height: 5.5rem;
+  min-height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.chat__page__container > .chat__groups > .parent--container > .header--container > p {
+  font-size: clamp(1rem, 0.1vw, 5rem);
+}
+
+.chat__page__container > .chat__groups > .parent--container > .main--container {
+  width: auto;
+  overflow-x: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.5rem 3rem;
+  padding-block: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.chat__page__container > .chat__groups > .parent--container > .main--container > .group--container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 3rem 2rem;
+}
+
+.chat__page__container > .chat__groups > .parent--container > .main--container > .group--container > .chat-group {
+  display: -ms-grid;
+  display: grid;
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
+  grid-auto-flow: column;
+  cursor: pointer;
+  width: clamp(12rem, 14.5vw, 25rem);
+}
+
+.chat__page__container > .chat__groups > .parent--container > .main--container > .group--container > .chat-group img {
+  width: 100%;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  grid-row: 1 / span 3;
+}
+
+.chat__page__container > .chat__groups > .parent--container > .main--container > .group--container > .chat-group > .content--container h3 {
+  line-height: 1;
+  font-size: clamp(0.26727rem, 2rem, 1rem);
+  font-size: clamp(1.2rem, 1.5vw, 3rem);
+  font-weight: light;
+}
+
+.chat__page__container > .chat__groups > .parent--container > .main--container > .group--container > .chat-group > .content--container span {
+  line-height: .1;
+  font-size: .8rem;
+  position: relative;
+  right: 0;
+  color: #ffffffa0;
+}
+
+.chat__page__container > .chat__groups > .parent--container > .main--container > .footer--container .exit {
+  font-size: 1.8ch;
+  color: #ffffffa0;
+  width: 8ch;
+}
+
+.chat__page__container > .chat__groups > .parent--container > .main--container > .footer--container .exit i {
+  color: #ffffffa0;
+}
+
+.chat__page__container > .chat__area {
+  background: url("../../img/Taieri 1.png") no-repeat;
+  background-color: #444343;
+  background-size: cover;
+  background-position: center;
+}
+
+.chat__page__container > .chat__area > .area--container {
+  padding-block: 2rem;
+  padding-inline: clamp(20px, 7%, 90px);
+  height: 100%;
+  max-height: 66vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.chat__page__container > .chat__area > .area--container::-webkit-scrollbar {
+  width: 0.4rem;
+  height: 0rem;
+}
+
+.chat__page__container > .chat__area > .area--container::-webkit-scrollbar-track {
+  width: 0rem;
+  height: 0rem;
+  background: transparent;
+}
+
+.chat__page__container > .chat__area > .area--container::-webkit-scrollbar-thumb {
+  background-color: red;
+}
+
+.chat__page__container > .chat__area > .area--container > ul {
+  display: -ms-grid;
+  display: grid;
+  row-gap: 2rem;
+  overflow-y: auto;
+}
+
+.chat__page__container > .chat__area > .area--container > ul .general--chat-box--style, .chat__page__container > .chat__area > .area--container > ul > .person-1, .chat__page__container > .chat__area > .area--container > ul > .person-2 {
+  width: 90%;
+  max-width: 500px;
+  padding-inline: 1rem;
+  padding-block: 1rem;
+  -webkit-backdrop-filter: blur(1rem);
+          backdrop-filter: blur(1rem);
+  font-size: 1.04375rem;
+  display: -ms-grid;
+  display: grid;
+}
+
+.chat__page__container > .chat__area > .area--container > ul .general--chat-box--style p, .chat__page__container > .chat__area > .area--container > ul > .person-1 p, .chat__page__container > .chat__area > .area--container > ul > .person-2 p {
+  padding: 0;
+  margin: 0;
+}
+
+.chat__page__container > .chat__area > .area--container > ul .general--chat-box--style p:first-child, .chat__page__container > .chat__area > .area--container > ul > .person-1 p:first-child, .chat__page__container > .chat__area > .area--container > ul > .person-2 p:first-child {
+  color: #00000080;
+}
+
+.chat__page__container > .chat__area > .area--container > ul .general--chat-box--style p:last-child, .chat__page__container > .chat__area > .area--container > ul > .person-1 p:last-child, .chat__page__container > .chat__area > .area--container > ul > .person-2 p:last-child {
+  -ms-grid-column-align: end;
+      justify-self: end;
+  color: #ffffffa0;
+  font-size: 0.99375rem;
+}
+
+.chat__page__container > .chat__area > .area--container > ul > .person-1 {
+  background: linear-gradient(161.22deg, #D9D9D9 6.84%, rgba(198, 245, 161, 0.39) 94.47%);
+  border-radius: 2rem 0px 2rem 2rem;
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+
+.chat__page__container > .chat__area > .area--container > ul > .person-2 {
+  background: linear-gradient(161.22deg, #D9D9D9 6.84%, rgba(250, 224, 158, 0.39) 94.47%);
+  border-radius: 0rem 2rem 2rem 2rem;
+  -ms-grid-column-align: start;
+      justify-self: start;
+}
+
+.chat__page__container > .chat__area > .area--container > ul .content--container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.chat__page__container > .chat__area > .area--container > ul .content--container i {
+  cursor: pointer;
+}
+
+.chat__page__container > .chat__input {
+  background-color: #00676C;
+}
+
+.chat__page__container > .chat__input > .parent--container {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.chat__page__container > .chat__input > .parent--container > .input--container {
+  width: 100%;
+  max-width: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  -webkit-column-gap: .5rem;
+          column-gap: .5rem;
+  padding-inline: 1rem;
+  padding-block: .5rem;
+}
+
+.chat__page__container > .chat__input > .parent--container > .input--container > .input--field {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.chat__page__container > .chat__input > .parent--container > .input--container > .input--field [type=text] {
+  border: 0;
+  background: transparent;
+  border-bottom: .2rem solid limegreen;
+  width: 100%;
+  padding: 1em;
+  padding-right: 3rem;
+}
+
+.chat__page__container > .chat__input > .parent--container > .input--container > .input--field i {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  font-size: 1.5rem;
+  color: #ffffffa0;
+  cursor: pointer;
+}
+
+.chat__page__container > .chat__input > .parent--container > .input--container > .send i {
+  font-size: 2.3rem;
+}
+
+.chat__page__container *.parent--container {
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (min-width: 70rem) {
+  .chat__page__container {
+    -ms-grid-rows: 5rem 1fr 7rem;
+        grid-template-rows: 5rem 1fr 7rem;
+        grid-template-areas: 'groups header header' 'groups chat__area chat__area' 'groups chat__input chat__input';
+  }
+  .chat__page__container > .chat__groups > .parent--container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .chat__page__container > .chat__groups > .parent--container > .main--container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    overflow-x: hidden;
+  }
+  .chat__page__container > .chat__groups > .parent--container > .main--container > .group--container {
+    max-height: 70vh;
+    overflow-y: auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-right: 4rem;
+  }
+  .chat__page__container > .chat__groups > .parent--container > .main--container > .group--container::-webkit-scrollbar {
+    width: 0.2rem;
+    height: 0rem;
+  }
+  .chat__page__container > .chat__groups > .parent--container > .main--container > .group--container::-webkit-scrollbar-track {
+    width: 0rem;
+    height: 0rem;
+    background: transparent;
+  }
+  .chat__page__container > .chat__groups > .parent--container > .main--container > .group--container::-webkit-scrollbar-thumb {
+    background-color: #d9d9d9;
+  }
+  .chat__page__container > .chat__groups > .parent--container > .main--container > .footer--container {
+    -ms-flex-item-align: start;
+        -ms-grid-row-align: start;
+        align-self: start;
+    -ms-grid-column-align: start;
+        justify-self: start;
+  }
+  .chat__page__container > .chat__area > .area--container {
+    max-height: 76vh;
+  }
 }
 
 .pos-abs {
