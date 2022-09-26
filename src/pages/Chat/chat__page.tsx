@@ -120,6 +120,11 @@ export const ChatPage = () => {
                 </li>
               </ul>
             </div>
+            <div className="to-bottom--container">
+              <div className="to-bottom">
+                <i className="bi bi-chevron-down"></i>
+              </div>
+            </div>
           </div>
           <div className="chat__input">
             <div className="parent--container">

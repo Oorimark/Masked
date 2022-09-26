@@ -271,6 +271,97 @@ button {
   max-width: 500px;
 }
 
+.app-menu-component--page {
+  background-color: rgba(0, 0, 0, 0.472);
+  padding: 2rem;
+  height: 100vh;
+}
+
+.app-menu-component--page > .menu__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+.app-menu-component--page > .menu__container > [class|=menu] {
+  cursor: pointer;
+}
+
+.app-menu-component--page > .menu__container > .menu-option {
+  width: 5rem;
+  height: 5rem;
+  background-color: #ffff;
+  border-radius: 50%;
+  -webkit-transition: top 700ms ease-out;
+  transition: top 700ms ease-out;
+  -webkit-box-shadow: 0 0 1rem #00000026;
+          box-shadow: 0 0 1rem #00000026;
+  position: absolute;
+  top: 1.5rem;
+}
+
+.app-menu-component--page > .menu__container > .menu-option i {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  color: #201F1F;
+  font-size: 2rem;
+}
+
+.app-menu-component--page > .menu__container > .menu-home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 3;
+}
+
+.app-menu-component--page > .menu__container > .menu-home .dot__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: .5rem;
+  background-color: #00676C;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.app-menu-component--page > .menu__container > .menu-home .dot__container .dot {
+  width: .5rem;
+  height: .5rem;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+}
+
 .Welcome_page {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -498,6 +589,44 @@ button {
   width: 700px;
 }
 
+/*  ===============
+    Page Component
+    ===============*/
+.clipboard--container {
+  margin-block: 2rem;
+}
+
+.clipboard--container > .clipboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 5rem;
+          column-gap: 5rem;
+  background-color: #d9d9d9;
+  padding-right: 1em;
+  border-radius: 1rem;
+  position: relative;
+}
+
+.clipboard--container > .clipboard > * {
+  color: #00676C;
+}
+
+.clipboard--container > .clipboard i {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.clipboard--container > .clipboard i:first-child {
+  height: 100%;
+  background: #ffff;
+  padding-inline: 3rem;
+  font-weight: 600;
+}
+
 /* ===== Table of Content =====
 1. Setting up variables
     1.1 Background and colors
@@ -570,7 +699,7 @@ button {
 }
 
 .chat__page__container > .chat__header {
-  background-color: #444343;
+  background-color: #2e2e2e;
 }
 
 .chat__page__container > .chat__header > .parent--container {
@@ -784,6 +913,37 @@ button {
   cursor: pointer;
 }
 
+.chat__page__container > .chat__area > .to-bottom--container {
+  position: fixed;
+  right: 0;
+  -webkit-transform: translate(0rem, -8rem);
+          transform: translate(0rem, -8rem);
+  scale: .7;
+}
+
+.chat__page__container > .chat__area > .to-bottom--container .to-bottom {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: #ffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-shadow: 0 0 1rem black;
+          box-shadow: 0 0 1rem black;
+}
+
+.chat__page__container > .chat__area > .to-bottom--container .to-bottom i {
+  color: #201F1F;
+  font-size: 2rem;
+}
+
 .chat__page__container > .chat__input {
   background-color: #00676C;
 }
@@ -857,6 +1017,9 @@ button {
     -ms-grid-rows: 5rem 1fr 7rem;
         grid-template-rows: 5rem 1fr 7rem;
         grid-template-areas: 'groups header header' 'groups chat__area chat__area' 'groups chat__input chat__input';
+  }
+  .chat__page__container > .chat__header {
+    background-color: #2e2e2e;
   }
   .chat__page__container > .chat__groups > .parent--container {
     -webkit-box-orient: vertical;

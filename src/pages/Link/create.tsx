@@ -9,6 +9,8 @@ import { generate_random_value } from "../../util/generator";
 import { PopUp } from "../../components/Pop-Up";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AlertContext } from "../../components/Alert/Context";
+import { toggleParameters } from '../../util/utilities/toggle';
+import { ClipBoard } from "../../util/utilities/clipboard";
 
 const CreateLinkPage: React.FC = () => {
   const navigate = useNavigate();
@@ -18,18 +20,21 @@ const CreateLinkPage: React.FC = () => {
   const startDate = useRef<any>(null);
   const endDate = useRef<any>(null);
   const linkRef = useRef<any>(null);
+  const clipboardBtn = useRef<any>(null);
 
+  const ShowAlert = () => {
+      if (alertContext.alertMsg) {
+        const prev = alertContext.alertMsg;
+        alertContext.setAlertMsg([
+          ...prev,
+          { msg: "Copied link", status: "success" },
+        ]);
+      }
+  }
   const GlassButtonClickExe = () => {
-    //togglePopup.current.alterToggle()
-    linkRef.current.innerHTML = generate_random_value(10);
-    // set a alert Message
-    if (alertContext.alertMsg) {
-      const prev = alertContext.alertMsg;
-      alertContext.setAlertMsg([
-        ...prev,
-        { msg: "Copied link", status: "success" },
-      ]);
-    }
+    togglePopup.current.alterToggle()
+    linkRef.current.innerHTML = generate_random_value(9);
+
   };
   const FormExecution = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -40,11 +45,22 @@ const CreateLinkPage: React.FC = () => {
   const Back = () => {
     navigate("/start");
   };
+  const CopyClipBoard = () => {
+      ClipBoard(document.querySelector("#link")) // copies to clipboard
+      clipboardBtn.current.classList.remove("bi-clipboard");
+      clipboardBtn.current.classList.add("bi-clipboard-check");
+      ShowAlert()
+  }
+
   return (
     <React.Fragment>
       <PopUp ref={togglePopup}>
-        <div className="link-container">
-          <div className="link m-2" ref={linkRef}></div>
+        <div className="clipboard--container">
+          <div className="clipboard m-2">
+            <i className="bi bi-link-45deg"></i>
+            <div className="link" id="link" ref={linkRef}></div>
+            <i className="bi bi-clipboard" ref={clipboardBtn} onClick={CopyClipBoard}></i>
+          </div>
         </div>
       </PopUp>
 
@@ -92,7 +108,11 @@ const CreateLinkPage: React.FC = () => {
                 type="submit"
                 value="generate token"
               />
-              <Button content="Go To Room" disable={disableButton} />
+              <Button
+                content="Go To Room"
+                disable={disableButton}
+                url="/chat"
+              />
             </form>
           </section>
           <div className="img">

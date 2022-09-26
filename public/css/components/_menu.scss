@@ -1,0 +1,53 @@
+.app-menu-component--page{
+    background-color: rgba(0, 0, 0, 0.472);
+    padding: 2rem;
+    height: 100vh;
+    > .menu__container{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
+        > [class|= menu]{
+            cursor: pointer;
+        }
+        > .menu-option{
+            width: 5rem;
+            height: 5rem;
+            background-color: $secondary-color-2;
+            border-radius: 50%;
+            transition: top 700ms ease-out;
+            box-shadow: 0 0 1rem #00000026;
+            position: absolute;
+            top: 1.5rem;
+            i{
+                @include fl-c;
+                height: 100%;
+                color: $primary-color;
+                font-size: 2rem;
+            }
+        }
+        > .menu-home{
+            @include fl-c;
+            z-index: 3;
+            .dot__container{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: .5rem;
+                background-color: $primary-color-2;
+                width: 4rem;
+                height:4rem;
+                border-radius: 50%;
+                .dot{
+                    width: .5rem;
+                    height: .5rem;
+                    background-color: $secondary-color;
+                    border-radius: 50%;
+                }
+            }
+        }
+        > .menu-option{
+
+        }
+    }
+}

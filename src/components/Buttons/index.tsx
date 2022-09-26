@@ -42,7 +42,7 @@ export const Button = (props: IProps) => {
                 {
                     props.disable ? 
                     props.content :
-                    <Link to={props.url ? props.url : ""}>{props.content}</Link> 
+                    <Link to={props.url || ""}>{props.content}</Link> 
                 }
             </div>
         </React.Fragment>
