@@ -2,7 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 interface IProps{
-    toogle: boolean
+    toggle: boolean
 }
 export const BackDrop: React.FC<IProps> = (props: IProps) => {
     const BackDropStyle: React.CSSProperties = {
@@ -12,8 +12,8 @@ export const BackDrop: React.FC<IProps> = (props: IProps) => {
         background: 'rgba(0, 0, 0, 0.907)',
         zIndex: 2,
     }
-    // toogle on or not
-    props.toogle ? 
+    // toggle on or not
+    props.toggle ? 
         BackDropStyle.display = 'block' : 
         BackDropStyle.display = 'none'
     return(

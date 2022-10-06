@@ -1,24 +1,30 @@
 .app-menu-component--page{
-    background-color: rgba(0, 0, 0, 0.472);
-    padding: 2rem;
-    height: 100vh;
+    // background-color: rgba(0, 0, 0, 0.472);
+    // padding: 2rem;
+    // height: 100vh;
     > .menu__container{
         display: flex;
-        align-items: center;
         flex-direction: column;
-        gap: 1rem;
-        > [class|= menu]{
+        align-items: center;
+        position: absolute;
+        right: 0;
+        padding: .8rem;
+        gap: 0rem;
+        z-index: 99;
+        > [class|= menu]{ // ! generic styling
             cursor: pointer;
+            scale: .8;
         }
         > .menu-option{
             width: 5rem;
             height: 5rem;
             background-color: $secondary-color-2;
             border-radius: 50%;
-            transition: top 700ms ease-out;
+            transition: top 550ms ease-out;
             box-shadow: 0 0 1rem #00000026;
             position: absolute;
-            top: 1.5rem;
+            top: .85rem;
+            transform: translateY(-.7rem);
             i{
                 @include fl-c;
                 height: 100%;
@@ -27,7 +33,6 @@
             }
         }
         > .menu-home{
-            @include fl-c;
             z-index: 3;
             .dot__container{
                 display: flex;
@@ -45,9 +50,6 @@
                     border-radius: 50%;
                 }
             }
-        }
-        > .menu-option{
-
         }
     }
 }

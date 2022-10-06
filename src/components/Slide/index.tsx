@@ -32,7 +32,7 @@ export const Slider: React.FC<IProps> = (props:IProps) => {
                                 { props.children }
                         </motion.div>
                         :
-                        <div style={sliderStyle}>{ props.children }</div>
+                        <div style={sliderStyle} className="slider">{ props.children }</div>
                 }
             </React.Fragment>
         )

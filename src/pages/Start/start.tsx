@@ -3,6 +3,7 @@ import { Button, TransparentButton } from "../../components/Buttons";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Typed from "typed.js";
+import { AppMenu } from "../../components/Menu";
 
 export class StartPage extends React.Component {
   private el!: HTMLHeadingElement | null;
@@ -36,12 +37,13 @@ export class StartPage extends React.Component {
           exit={{ opacity: 1, transition: { duration: 2 } }}
           className=" disp-fl-c-d bg-primary h-start-container"
         >
+          <AppMenu position="bottom" />
           <div className="background-pattern"></div>
           <div className="start-container">
             <div className="row-custom">
               <div className="header mb-1">
                 <h3
-                  className="font-white heroText" 
+                  className="font-white heroText"
                   ref={(el) => {
                     this.el = el;
                   }}

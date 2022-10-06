@@ -8,11 +8,11 @@ interface IProps{
 }
 
 export const PopUp = forwardRef((props:IProps, ref: any) => {
-    let [toggle, settoggle] = useState(false)
+    let [toggle, setToggle] = useState(false)
 
     useImperativeHandle(ref, () => ({
         alterToggle(){
-            settoggle(!toggle)
+            setToggle(!toggle)
         }
     })); 
 
@@ -26,7 +26,7 @@ export const PopUp = forwardRef((props:IProps, ref: any) => {
     }
 
     const confirmStatus = () => {
-        settoggle(!toggle)
+        setToggle(!toggle)
     }
 
     if(toggle) { 
@@ -38,7 +38,7 @@ export const PopUp = forwardRef((props:IProps, ref: any) => {
 
     return (
         <React.Fragment>
-            <BackDrop toogle={toggle}/>
+            <BackDrop toggle={toggle}/>
             <div className="pop-container" style={PopContainerStyle}>
                     <div className="pop-up" style={PopUpStyle}>
                         <p>{ props.message }</p>

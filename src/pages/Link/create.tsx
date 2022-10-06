@@ -11,6 +11,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AlertContext } from "../../components/Alert/Context";
 import { toggleParameters } from '../../util/utilities/toggle';
 import { ClipBoard } from "../../util/utilities/clipboard";
+import { AppMenu } from "../../components/Menu";
 
 const CreateLinkPage: React.FC = () => {
   const navigate = useNavigate();
@@ -33,7 +34,8 @@ const CreateLinkPage: React.FC = () => {
   }
   const GlassButtonClickExe = () => {
     togglePopup.current.alterToggle()
-    linkRef.current.innerHTML = generate_random_value(9);
+    const hostname = "http://localhost:3000/create";
+    linkRef.current.innerHTML = hostname + "/" + generate_random_value(9);
 
   };
   const FormExecution = (e: React.FormEvent<HTMLFormElement>) => {
@@ -54,12 +56,17 @@ const CreateLinkPage: React.FC = () => {
 
   return (
     <React.Fragment>
+      <AppMenu position="bottom" />
       <PopUp ref={togglePopup}>
         <div className="clipboard--container">
           <div className="clipboard m-2">
             <i className="bi bi-link-45deg"></i>
             <div className="link" id="link" ref={linkRef}></div>
-            <i className="bi bi-clipboard" ref={clipboardBtn} onClick={CopyClipBoard}></i>
+            <i
+              className="bi bi-clipboard"
+              ref={clipboardBtn}
+              onClick={CopyClipBoard}
+            ></i>
           </div>
         </div>
       </PopUp>
