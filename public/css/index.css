@@ -353,6 +353,35 @@ button {
   border-radius: 50%;
 }
 
+.nav-bar--component {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.533);
+  width: 100%;
+  height: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.nav-bar--component > nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-inline: 1rem;
+}
+
 .Welcome_page {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1061,6 +1090,48 @@ button {
   }
   .chat__page__container > .chat__area > .area--container {
     max-height: 76vh;
+  }
+}
+
+.contact--page--container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  -ms-grid-rows: 10rem 1fr;
+      grid-template-rows: 10rem 1fr;
+  height: 100vh;
+  border-collapse: collapse;
+}
+
+.contact--page--container > * {
+  border: 0.2rem solid #d85757;
+}
+
+.contact--page--container > section > .aside__container {
+  background-color: #d9d9d9;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.contact--page--container > section > .aside__container img {
+  position: absolute;
+  right: 1rem;
+  bottom: -3.7rem;
+  width: clamp(10rem, 30vw, 39rem);
+}
+
+@media (min-width: 70em) {
+  .contact--page--container {
+    -ms-grid-columns: 35rem 1fr;
+        grid-template-columns: 35rem 1fr;
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+  }
+  .contact--page--container > section .aside__container svg {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
   }
 }
 

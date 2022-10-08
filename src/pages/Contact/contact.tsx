@@ -1,12 +1,16 @@
 import React from 'react';
 
 export const ContactPage = () => {
-    return(
-        <React.Fragment>
-            <div className="contact--page--container">
-                <section></section>
-                <main></main>
+    return (
+      <React.Fragment>
+        <div className="contact--page--container">
+          <section>
+            <div className="aside__container">
+                <img src="../../../public/img/woman folded her hands.png" alt="" />
             </div>
-        </React.Fragment>
-    )
+          </section>
+          <main></main>
+        </div>
+      </React.Fragment>
+    );
 }

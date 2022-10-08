@@ -11,6 +11,7 @@ import { AlertContext } from "../components/Alert/Context";
 import { ChatPage } from "./Chat/chat__page";
 import { AppMenu } from '../components/Menu/index';
 import { ContactPage } from './Contact/contact';
+import { NavigationBar } from '../ui/Nav/navigation__bar';
 
 export const RoutedPages: React.FC = () => {
   const alertContext = useContext(AlertContext);
@@ -42,7 +43,7 @@ export const RoutedPages: React.FC = () => {
         <Route path="/create" element={<CreateLinkPage />} />
         <Route path="/join" element={<JonLinkPage />} />
         <Route path="/chat" element={<ChatPage />} />
-        <Route path="/test" element={<ContactPage/>} />
+        <Route path="/test" element={<NavigationBar />} />
       </Routes>
     </AnimatePresence>
   );
