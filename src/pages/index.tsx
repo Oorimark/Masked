@@ -9,9 +9,7 @@ import Alert from "../components/Alert";
 import { JonLinkPage } from "./Link/join";
 import { AlertContext } from "../components/Alert/Context";
 import { ChatPage } from "./Chat/chat__page";
-import { AppMenu } from '../components/Menu/index';
-import { ContactPage } from './Contact/contact';
-import { NavigationBar } from '../ui/Nav/navigation__bar';
+import { NavigationBar } from "../ui/Nav/navigation__bar";
 
 export const RoutedPages: React.FC = () => {
   const alertContext = useContext(AlertContext);
@@ -30,7 +28,7 @@ export const RoutedPages: React.FC = () => {
               />
             ) : (
               ""
-            )
+            ),
           )}
         </div>
       ) : (
